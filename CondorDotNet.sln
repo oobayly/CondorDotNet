@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CondorDotNet", "CondorDotNet\CondorDotNet.csproj", "{0739E2E0-FFDC-4E39-9A4A-F618D6EB3D14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{61D511DA-FAF4-4E24-92CC-24165D48C748}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0739E2E0-FFDC-4E39-9A4A-F618D6EB3D14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0739E2E0-FFDC-4E39-9A4A-F618D6EB3D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0739E2E0-FFDC-4E39-9A4A-F618D6EB3D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0739E2E0-FFDC-4E39-9A4A-F618D6EB3D14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61D511DA-FAF4-4E24-92CC-24165D48C748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61D511DA-FAF4-4E24-92CC-24165D48C748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61D511DA-FAF4-4E24-92CC-24165D48C748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61D511DA-FAF4-4E24-92CC-24165D48C748}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C115046-5357-468C-8ED1-BE041BE20EE1}
+	EndGlobalSection
+EndGlobal
