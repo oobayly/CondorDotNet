@@ -11,6 +11,8 @@ namespace Tests.Extensions {
           .AddJsonFile("appsettings.user.json", false)
           .Build();
 
+    internal static IConfiguration GetConfiguration(this ICondorTest test) => Configuration;
+
     internal static string GetPlanesPath(this ICondorTest test) {
       return Path.Combine(Configuration[CondorPathKey], "Planes");
     }

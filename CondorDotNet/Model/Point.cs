@@ -29,6 +29,14 @@
     }
 
     /// <summary>
+    /// Returns a <see cref="System.Drawing.PointF"/> containing the current values.
+    /// </summary>
+    /// <returns></returns>
+    public System.Drawing.PointF ToPointF() {
+      return new System.Drawing.PointF((float)Speed, (float)Sink);
+    }
+
+    /// <summary>
     /// Returns a string that represents the current object.
     /// </summary>
     public override string ToString() {

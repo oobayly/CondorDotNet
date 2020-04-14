@@ -1,7 +1,10 @@
 ﻿using CondorDotNet.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
+using System.Linq;
 
 namespace CondorDotNet.Model {
   /// <summary>
@@ -46,6 +49,30 @@ namespace CondorDotNet.Model {
     /// </summary>
     public Point GetBestGlide() {
       return GetMC(0, 0);
+    }
+
+    /// <summary>
+    /// Returns a GDI+ <see cref="GraphicsPath"/> for the current <see cref="Polar"/>.
+    /// </summary>
+    public GraphicsPath GetGdiPath() {
+      var path = new GraphicsPath();
+      var current = this.First;
+
+      var points = new List<PointF>() {
+        current.Value.Point.ToPointF()
+      };
+
+      do {
+        points.AddRange(new PointF[] {
+          current.Value.NextHandle.ToPointF(),
+          current.Next.Value.PreviousHandle.ToPointF(),
+          current.Next.Value.Point.ToPointF()
+        });
+      } while ((current = current.Next).Next != null);
+
+      path.AddBeziers(points.ToArray());
+
+      return path;
     }
 
     /// <summary>

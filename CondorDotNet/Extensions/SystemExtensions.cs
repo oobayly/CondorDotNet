@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CondorDotNet.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -28,6 +29,30 @@ namespace System {
       }
 
       return found[1].ParseValue<T>(units);
+    }
+
+    internal static string ToMassString(this double value, UnitType units) {
+      var unitText = units == UnitType.Imperial ? "lb" : "kg";
+
+      return $"{value:N0} {unitText}";
+    }
+
+    internal static string ToSinkString(this double value, UnitType units) {
+      var unitText = units == UnitType.Imperial ? "Kts" : "m/s";
+
+      return $"{value:0.00} {unitText}";
+    }
+
+    internal static string ToSpeedString(this double value, UnitType units) {
+      var unitText = units == UnitType.Metric ? "km/h" : "Kts";
+
+      return $"{value:0} {unitText}";
+    }
+
+    internal static string ToWingLoadingString(this double value, UnitType units) {
+      var unitText = units == UnitType.Metric ? "kg/m²" : "lb/ft²";
+
+      return $"{value:0.0} {unitText}";
     }
   }
 }
