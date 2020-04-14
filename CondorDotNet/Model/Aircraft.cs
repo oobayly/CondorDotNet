@@ -100,12 +100,12 @@ namespace CondorDotNet.Model {
     /// <summary>
     /// The maximum wing loading of the aircraft (kg/m²).
     /// </summary>
-    public double WingLoadingMax => (MassMax) / WingArea;
+    public double WingLoadingMax => GetWingLoading(MassMax);
 
     /// <summary>
     /// The minimum wing loading of the aircraft (kg/m²).
     /// </summary>
-    public double WingLoadingMin  => (MassEmpty + MassPilotMin) / WingArea;
+    public double WingLoadingMin => GetWingLoading(MassEmpty + MassPilotMin);
 
     /// <summary>
     /// The wing span of the aircraft (metre).
@@ -114,6 +114,14 @@ namespace CondorDotNet.Model {
     #endregion
 
     #region Methods
+    /// <summary>
+    /// Returns the wing loading (kg/m²).
+    /// </summary>
+    /// <param name="mass">The mass of the aircraft (kg).</param>
+    public double GetWingLoading(double mass) {
+      return mass / WingArea;
+    }
+
     /// <summary>
     /// Returns a string containing the WinPilot Polar.
     /// See: http://www.winpilot.com/polar.asp

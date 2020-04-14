@@ -8,7 +8,7 @@ using Xunit;
 namespace Tests {
   public class ConversionTests {
     [Fact]
-    public void MassTests() {
+    public void MassTest() {
       Assert.Equal(264.550, 120.0.ConvertMass(UnitType.Imperial), 3);
       Assert.Equal(264.550, 120.0.ConvertMass(UnitType.Imperial, UnitType.Australian), 3);
 
@@ -21,7 +21,7 @@ namespace Tests {
     }
 
     [Fact]
-    public void SinkRateTests() {
+    public void SinkRateTest() {
       Assert.Equal(9.719, 5.0.ConvertSinkRate(UnitType.Imperial), 3);
       Assert.Equal(9.719, 5.0.ConvertSinkRate(UnitType.Imperial, UnitType.Australian), 3);
 
@@ -34,7 +34,7 @@ namespace Tests {
     }
 
     [Fact]
-    public void SpeedTests () {
+    public void SpeedTest() {
       Assert.Equal(59.395, 110.0.ConvertSpeed(UnitType.Imperial), 3);
       Assert.Equal(59.395, 110.0.ConvertSpeed(UnitType.Australian), 3);
 
@@ -47,7 +47,7 @@ namespace Tests {
     }
 
     [Fact]
-    public void VolumeTests() {
+    public void VolumeTest() {
       Assert.Equal(158.503, 600.0.ConvertVolume(UnitType.Imperial), 3);
       Assert.Equal(158.503, 600.0.ConvertVolume(UnitType.Imperial, UnitType.Australian), 3);
 
@@ -57,6 +57,19 @@ namespace Tests {
       // None needed
       Assert.Equal(5, 5.0.ConvertVolume(UnitType.Metric));
       Assert.Equal(5, 5.0.ConvertVolume(UnitType.Australian));
+    }
+
+    [Fact]
+    public void WingLoadingTest() {
+      Assert.Equal(6.841, 33.4.ConvertWingLoading(UnitType.Imperial), 3);
+      Assert.Equal(6.841, 33.4.ConvertWingLoading(UnitType.Imperial, UnitType.Australian), 3);
+
+      Assert.Equal(43.943, 9.0.ConvertWingLoading(UnitType.Metric, UnitType.Imperial), 3);
+      Assert.Equal(43.943, 9.0.ConvertWingLoading(UnitType.Australian, UnitType.Imperial), 3);
+
+      // None needed
+      Assert.Equal(5, 5.0.ConvertWingLoading(UnitType.Metric));
+      Assert.Equal(5, 5.0.ConvertWingLoading(UnitType.Australian));
     }
   }
 }

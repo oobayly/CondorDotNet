@@ -7,11 +7,15 @@ namespace CondorDotNet.Extensions {
   public static class UnitConversionExtensions {
     private const double InchToCM = 2.54;
 
+    private const double FootToMetre = .3048;
+
     private const double NMToKm = 1.852;
 
     private const double KnotToMPS = 1852.0 / 3600.0;
 
     private const double LbToKg = 0.4536;
+
+    private const double LoadingToMetric = LbToKg / (FootToMetre * FootToMetre);
 
     private const double GallToLitre = 231 * InchToCM * InchToCM * InchToCM / 1000; // 231 cubic inches
 
@@ -98,6 +102,28 @@ namespace CondorDotNet.Extensions {
 
       if (to == UnitType.Imperial) {
         value /= GallToLitre;
+      }
+
+      return value;
+    }
+
+    /// <summary>
+    /// Returns the current value converted from <paramref name="from"/> units to <paramref name="to"/> wing loading units.
+    /// </summary>
+    /// <param name="value">The current value.</param>
+    /// <param name="to">The units to convert to.</param>
+    /// <param name="from">The units to convert from.</param>
+    public static double ConvertWingLoading(this double value, UnitType to, UnitType from = UnitType.Metric) {
+      if (to == from) {
+        return value;
+      }
+
+      if (from == UnitType.Imperial) {
+        value *= LoadingToMetric;
+      }
+
+      if (to == UnitType.Imperial) {
+        value /= LoadingToMetric;
       }
 
       return value;
